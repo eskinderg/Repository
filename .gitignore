@@ -218,3 +218,5 @@ Web.config
 *.config
 Project/Web.config
 Project/Scripts/*
+Project/Content/*
+Project/fonts/*
