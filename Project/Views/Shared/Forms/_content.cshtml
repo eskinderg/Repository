@@ -7,12 +7,12 @@
     </div>
 
     <br>
-
+    
         <div class="input-group">
             <span class="input-group-addon">XML ID</span>
-            <input type="text" name="XML Config" ng-model="content.XmlConfigId" required ng-maxlength="50" class="form-control">
+            <input type="text" name="XmlConfigId" ng-model="content.XmlConfigId" required number ng-maxlength="50" class="form-control">
             <span ng-show="contentform.XmlConfigId.$error.maxlength">Max characters allowed is 50</span>
-
+            <span ng-show="contentform.XmlConfigId.$error.number && ! contentform.XmlConfigId.$pristine">Only Numbers</span>
         </div>
 
         <br>

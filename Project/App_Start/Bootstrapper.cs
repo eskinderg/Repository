@@ -1,11 +1,11 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 using Project.Data;
+using Project.Services;
 
 namespace Project.App_Start
 {
@@ -31,19 +31,22 @@ namespace Project.App_Start
 
             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
 
-
+#region Reflection registration
+/*
             builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
                                             .Where(t => t.Name.EndsWith("Service"))
                                             .AsImplementedInterfaces()
                                             .InstancePerLifetimeScope();
+*/
+#endregion
 
 #region Separate Service Injections
-        /*
+        
             builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
             builder.RegisterType<FolderService>().As<IFolderService>().InstancePerLifetimeScope();
             builder.RegisterType<ContentService>().As<IContentService>().InstancePerLifetimeScope();
             builder.RegisterType<ExpenseService>().As<IExpenseService>().InstancePerLifetimeScope();
-        */
+        
 #endregion
 
 #region Comments

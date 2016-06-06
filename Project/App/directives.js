@@ -13,3 +13,17 @@ project.directive("currency", function () {
     };
 });
 
+project.directive("number", function () {
+    return {
+        restrict: "A",
+        require: "ngModel",
+
+        link: function (scope, element, attributes, ngModel) {
+            ngModel.$validators.number = function (modelValue) {
+                var numberExp = /^\d+$/;
+                return (numberExp.test(modelValue));
+            }
+        }
+    };
+});
+
