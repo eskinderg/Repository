@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Project.Services;
@@ -31,10 +32,20 @@ namespace Project.App_Start
 
             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
 
+
+            builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+                                        .Where(t => t.Name.EndsWith("Service"))
+                                        .AsImplementedInterfaces()
+                                        .InstancePerLifetimeScope();
+
+#region Separate Service Injections
+        /*
             builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
             builder.RegisterType<FolderService>().As<IFolderService>().InstancePerLifetimeScope();
             builder.RegisterType<ContentService>().As<IContentService>().InstancePerLifetimeScope();
             builder.RegisterType<ExpenseService>().As<IExpenseService>().InstancePerLifetimeScope();
+        */
+#endregion
 
 #region Comments
 //builder.RegisterType<ExpenseRepository>().As<IExpenseRepo>().InstancePerRequest();
@@ -46,16 +57,6 @@ namespace Project.App_Start
 //builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
 //builder.RegisterType<ExpenseManager>().As<IExpenseManager>();
 #endregion
-
-#region Separate Injections
-            /*
-
-               builder.RegisterType<ExpenseRepository>().As<IExpenseRepository>();
-               builder.RegisterType<ContentRepository>().As<IContentRepository>();
-               builder.RegisterType<FolderRepository>().As<IFolderRepository>();
-
-            */
-            #endregion
 
             builder.RegisterControllers(Assembly.GetExecutingAssembly());                   //Register all Controllers
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());                //Register all API's
