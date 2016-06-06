@@ -4,6 +4,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Project.App_Start;
 
+
 namespace Project
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -15,6 +16,7 @@ namespace Project
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
             Bootstrapper.Run();
         }
     }

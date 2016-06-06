@@ -67,7 +67,7 @@ namespace Project.App_Start
             /*builder.RegisterAssemblyTypes(typeof(NewsRepository).Assembly)
                 .Where(t => t.Name.EndsWith("Repository"))
                 .AsImplementedInterfaces().InstancePerRequest();
-             
+
             builder.RegisterAssemblyTypes(typeof(NewsService).Assembly)
                 .Where(t => t.Name.EndsWith("Service"))
                 .AsImplementedInterfaces().InstancePerRequest();*/
@@ -85,7 +85,7 @@ namespace Project.App_Start
             builder.RegisterFilterProvider();
             var container = builder.Build();
 
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container)); 
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
     }
