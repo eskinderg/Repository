@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Add Contents";
+}
+
+@section scripts
+{
+    <script src="~/App/Controllers/Content/Create.js"></script>
+}
+
+<div>
+    <div class="row" style="margin-top:2%">
+        <div class="col-lg-12 col-lg-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <i class="icon-calendar"></i>
+                    <h3 class="panel-title">Contents</h3>
+                </div>
+
+                <div class="panel-body" ng-controller="FormSubmitController">
+                    
+                    @{
+                        Html.RenderPartial("~/Views/Shared/Forms/_content.cshtml");
+                    }
+
+                    <br/>
+                    <!-- Grid Element----------------------------------->
+
+                    <div ng-controller="ExpenseGridController">
+
+                            <div ng-Grid="gridOptions" class="expensegrid"></div>
+
+                            <style>
+                                .expensegrid {
+                                    height: 400px;
+                                }
+
+                                .ngViewport
+                                {
+                                    overflow-x: hidden;
+                                    border-left: 1px solid #d1d1d1;
+                                    border-bottom: none;
+                                }
+                                .ngHeaderContainer {
+                                    border-left: 1px solid #d1d1d1;
+                                }
+
+                                .ngGrid input {
+                                    outline: none;
+                                }
+                            </style>
+
+                    </div>
+                    <!--End Grid Element--------------------------------------->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+</div>
+
+
+
+

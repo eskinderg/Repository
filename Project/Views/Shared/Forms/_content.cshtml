@@ -1,0 +1,48 @@
+﻿
+<form novalidate name="contentform" ng-submit="formSubmit(content)">
+
+    <div class="input-group">
+        <span class="input-group-addon">Title</span>
+        <input type="text" name="Title" class="form-control" ng-model="content.Title" required>
+    </div>
+
+    <br>
+
+        <div class="input-group">
+            <span class="input-group-addon">XML ID</span>
+            <input type="text" name="XML Config" ng-model="content.XmlConfigId" required ng-maxlength="50" class="form-control">
+            <span ng-show="contentform.XmlConfigId.$error.maxlength">Max characters allowed is 50</span>
+
+        </div>
+
+        <br>
+
+        <div class="input-group">
+            <span class="input-group-addon">Folder</span>
+            @*<input type="text" name="Folder" ng-model="content.Folder.Name" required ng-maxlength="25" class="form-control">*@
+
+            @*<select class="form-control" ng-model="content.FolderId" ng-options="item as item.Name for item in folders track by item.Id"></select>*@
+
+            <select class="form-control" name="folder" ng-model="content.FolderId">
+                <option value="" selected>Select Folder</option>
+                <option ng-repeat="folder in folders" value="{{folder.Id}}">{{folder.Name}}</option>
+            </select>
+
+        </div>
+
+    <br>
+
+        <div class="input-group">
+            <span class="input-group-addon">Summary</span>
+            <input type="text" name="Summary" class="form-control" required ng-model="content.Summary">
+
+            <span ng-show="contentform.Amount.$error.currency && ! contentform.Amount.$pristine">Currency only</span>
+        </div>
+
+    <br />
+
+        <input type="submit" ng-disabled="contentform.$invalid || contentform.$pristine" value="Submit" class="btn btn-default" />
+
+    <br><br>
+
+</form>
