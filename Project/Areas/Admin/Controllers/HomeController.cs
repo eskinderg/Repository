@@ -6,8 +6,6 @@ namespace Project.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-
-        private readonly IExpenseManager _expenseManager;
         private readonly IExpenseService _expenseService;
         private readonly IContentService _contentService;
 
@@ -25,12 +23,12 @@ namespace Project.Areas.Admin.Controllers
 
         public ActionResult Expired()
         {
-            return View();// (_expenseManager.GetExpiredExpenses());
+            return View();
         }
 
         public ActionResult UnExpired()
         {
-            return View(); // (_expenseManager.GetUnExpiredExpenses());
+            return View();
         }
 
         public ActionResult Details(int id)
