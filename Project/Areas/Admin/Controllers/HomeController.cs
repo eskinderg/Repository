@@ -15,7 +15,7 @@ namespace Project.Areas.Admin.Controllers
             _expenseService = expenseService;
         }
 
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             return View(_contentService.GetAllContents());
         }
@@ -34,6 +34,6 @@ namespace Project.Areas.Admin.Controllers
         public ActionResult Details(int id)
         {
             return Content(_contentService.GetContent(id).Summary);
-        }
+        }*/
 	}
 }
