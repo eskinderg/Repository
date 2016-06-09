@@ -17,6 +17,7 @@ namespace Project
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js",
                 "~/Scripts/angular-route.js",
+                "~/Scripts/angular-cookies.js",
                 "~/Scripts/ng-grid.js",
                 "~/Scripts/ui-grid.js",
                 "~/Scripts/angular-ui/ui-bootstrap-tpls.js"));

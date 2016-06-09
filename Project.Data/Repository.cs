@@ -34,9 +34,9 @@ namespace Project.Data
 
                 _context.SaveChanges();
             }
-            catch (DbEntityValidationException dbEx)
+            catch (DbEntityValidationException dbException)
             {
-                throw new Exception(GetFullErrorText(dbEx), dbEx);
+                throw new Exception(GetFullErrorText(dbException), dbException);
             }
         }
 
@@ -52,9 +52,9 @@ namespace Project.Data
 
                 _context.SaveChanges();
             }
-            catch (DbEntityValidationException dbEx)
+            catch (DbEntityValidationException dbException)
             {
-                throw new Exception(GetFullErrorText(dbEx), dbEx);
+                throw new Exception(GetFullErrorText(dbException), dbException);
             }
         }
 
@@ -68,9 +68,9 @@ namespace Project.Data
 
                 _context.SaveChanges();
             }
-            catch (DbEntityValidationException dbEx)
+            catch (DbEntityValidationException dbException)
             {
-                throw new Exception(GetFullErrorText(dbEx), dbEx);
+                throw new Exception(GetFullErrorText(dbException), dbException);
             }
         }
 
@@ -83,9 +83,9 @@ namespace Project.Data
 
                 _context.SaveChanges();
             }
-            catch (DbEntityValidationException dbEx)
+            catch (DbEntityValidationException dbException)
             {
-                throw new Exception(GetFullErrorText(dbEx), dbEx);
+                throw new Exception(GetFullErrorText(dbException), dbException);
             }
         }
 
@@ -101,9 +101,9 @@ namespace Project.Data
 
                 _context.SaveChanges();
             }
-            catch (DbEntityValidationException dbEx)
+            catch (DbEntityValidationException dbException)
             {
-                throw new Exception(GetFullErrorText(dbEx), dbEx);
+                throw new Exception(GetFullErrorText(dbException), dbException);
             }
         }
 
@@ -119,9 +119,9 @@ namespace Project.Data
 
                 _context.SaveChanges();
             }
-            catch (DbEntityValidationException dbEx)
+            catch (DbEntityValidationException dbException)
             {
-                throw new Exception(GetFullErrorText(dbEx), dbEx);
+                throw new Exception(GetFullErrorText(dbException), dbException);
             }
         }
 

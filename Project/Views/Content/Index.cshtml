@@ -5,6 +5,7 @@
 @section scripts
 {
     <script src="~/App/Controllers/Content/Create.js"></script>
+    <script src="~/App/AuthService/authentication.service.js"></script>
 }
 
 <div>
@@ -18,11 +19,8 @@
 
                 <div class="panel-body" ng-controller="FormSubmitController">
                     
-                    @{
-                        Html.RenderPartial("~/Views/Shared/Forms/_content.cshtml");
-                    }
-
-                    <br/>
+                        @Html.Partial("~/Views/Shared/Forms/_content.cshtml")
+                    
                     <!-- Grid Element----------------------------------->
 
                     <div ng-controller="ExpenseGridController">
