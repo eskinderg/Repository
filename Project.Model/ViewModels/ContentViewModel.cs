@@ -12,7 +12,6 @@ namespace Project.Model.ViewModels
         [DataMember]
         public string Title { get; set; }
 
-
         [DataMember]
         public string Summary { get; set; }
 

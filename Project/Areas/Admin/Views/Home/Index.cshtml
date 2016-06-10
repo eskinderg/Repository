@@ -1,11 +1,10 @@
-﻿@using System.Web.Mvc.Html
-@model IEnumerable<Project.Model.Models.Content>
+﻿@model IEnumerable<Project.Model.Models.Content>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Admin Area";
 }
 
-<h2>Index</h2>
+<h2>Admin Area</h2>
 
 <p>
 
@@ -25,7 +24,7 @@
             @Html.DisplayNameFor(model => model.XmlConfigId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FolderId)
+            @Html.DisplayNameFor(model => model.Folder.Name)
         </th>
         <th></th>
     </tr>
@@ -45,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.XmlConfigId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FolderId)
+            @Html.DisplayFor(modelItem => item.Folder.Name)
         </td>
         <td>
         </td>
