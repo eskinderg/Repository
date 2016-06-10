@@ -15,12 +15,12 @@ namespace Project.Areas.Admin.Controllers
             _expenseService = expenseService;
         }
 
-        /*public ActionResult Index()
+        public ActionResult Index()
         {
             return View(_contentService.GetAllContents());
         }
 
-
+        /*
         public ActionResult Expired()
         {
             return View();

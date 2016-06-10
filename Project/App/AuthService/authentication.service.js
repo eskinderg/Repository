@@ -1,6 +1,7 @@
 ﻿    project.factory("AuthenticationService", function($http, $cookieStore, $rootScope, $timeout, UserService) {
 
            function AuthenticationService($http, $cookieStore, $rootScope, $timeout, UserService) {
+
                var service = {};
 
                service.Login = Login;
