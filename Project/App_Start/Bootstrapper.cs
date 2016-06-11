@@ -15,7 +15,6 @@ namespace Project.App_Start
         public static void Run()
         {
             SetAutofacContainer();
-            AutoMapperConfig.RegisterMappings();
         }
 
         private static void SetAutofacContainer()
@@ -28,7 +27,6 @@ namespace Project.App_Start
 #endregion
 
             builder.RegisterType<ProjectDbContext>().As<IDbContext>().InstancePerLifetimeScope();
-
             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
 
 #region Reflection registration
@@ -46,19 +44,20 @@ namespace Project.App_Start
             builder.RegisterType<FolderService>().As<IFolderService>().InstancePerLifetimeScope();
             builder.RegisterType<ContentService>().As<IContentService>().InstancePerLifetimeScope();
             builder.RegisterType<ExpenseService>().As<IExpenseService>().InstancePerLifetimeScope();
-        
+
 #endregion
+            AutoMapperConfiguration.RegisterMappings(builder);
 
 #region Comments
-//builder.RegisterType<ExpenseRepository>().As<IExpenseRepo>().InstancePerRequest();
+            //builder.RegisterType<ExpenseRepository>().As<IExpenseRepo>().InstancePerRequest();
 
-// builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
-//         .AsClosedTypesOf(typeof(IRepository<>)).AsImplementedInterfaces();
+            // builder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
+            //         .AsClosedTypesOf(typeof(IRepository<>)).AsImplementedInterfaces();
 
-//builder.RegisterType<ApplicationDbContext>().AsSelf().InstancePerRequest();     // Single instance DBContext
-//builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
-//builder.RegisterType<ExpenseManager>().As<IExpenseManager>();
-#endregion
+            //builder.RegisterType<ApplicationDbContext>().AsSelf().InstancePerRequest();     // Single instance DBContext
+            //builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+            //builder.RegisterType<ExpenseManager>().As<IExpenseManager>();
+            #endregion
 
             builder.RegisterControllers(Assembly.GetExecutingAssembly());                   //Register all Controllers
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());                //Register all API's

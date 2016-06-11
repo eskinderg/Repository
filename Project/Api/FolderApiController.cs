@@ -10,17 +10,19 @@ namespace Project.Api
     public class FolderApiController : ApiController
     {
         private readonly IFolderService _folderService;
+        private readonly IMapper _mapper;
 
-        public FolderApiController(IFolderService folderService)
+        public FolderApiController(IFolderService folderService, IMapper mapper)
         {
             _folderService = folderService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         [Route("folders")]
         public IEnumerable<FolderViewModel> Folders()
         {
-            IEnumerable<FolderViewModel> folders = Mapper.Map<IEnumerable<FolderViewModel>>(_folderService.GetAllFolders());
+            IEnumerable<FolderViewModel> folders = _mapper.Map<IEnumerable<FolderViewModel>>(_folderService.GetAllFolders());
             
             return folders;
         }

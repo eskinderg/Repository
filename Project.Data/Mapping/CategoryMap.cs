@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using Project.Model;
+using Project.Model.Models;
 
 namespace Project.Data.Mapping
 {

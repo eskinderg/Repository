@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Project.Data;
-using Project.Model;
+using Project.Model.Models;
 
 namespace Project.Services
 {

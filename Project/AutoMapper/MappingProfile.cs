@@ -4,17 +4,13 @@ using Project.Model.ViewModels;
 
 namespace Project.AutoMapper
 {
-    public class OrganizationProfile : Profile
+    public class MappingProfile : Profile
     {
-        public OrganizationProfile()
+        protected override void Configure()
         {
             CreateMap<Content, ContentViewModel>();
             CreateMap<Folder, FolderViewModel>();
-        }
-
-        protected override void Configure()
-        {
-            throw new System.NotImplementedException();
+            CreateMap<Category, CategoryViewModel>();
         }
     }
 }

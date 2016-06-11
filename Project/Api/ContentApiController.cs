@@ -14,12 +14,15 @@ namespace Project.Api
     {
         private readonly IContentService _contentService;
         private readonly ICategoryService _categoryService;
+        private readonly IMapper _mapper;
 
         public ContentApiController(IContentService contentService, 
-                                    ICategoryService categoryService)
+                                    ICategoryService categoryService,
+                                    IMapper mapper)
         {
             _contentService = contentService;
             _categoryService = categoryService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -27,15 +30,15 @@ namespace Project.Api
         [CacheClient(Duration =20)]
         public IEnumerable<ContentViewModel> GetAllContents()
         {
-            var cvm = Mapper.Map<IEnumerable<ContentViewModel>>(_contentService.GetAllContents());
+            var cvm = _mapper.Map<IEnumerable<ContentViewModel>>(_contentService.GetAllContents());
             return cvm;
         }
 
         [HttpGet]
         [Route("content/{id}")]
-        public Content GetContent(int id)
+        public ContentViewModel GetContent(int id)
         {
-            return _contentService.GetContent(id);
+            return _mapper.Map<ContentViewModel>(_contentService.GetContent(id));
         }
 
         [HttpGet]
@@ -47,9 +50,9 @@ namespace Project.Api
 
         [HttpPost]
         [Route("content/add")]
-        public Content Add(Content content)
+        public ContentViewModel Add(Content content)
         {
-            return ModelState.IsValid ? _contentService.AddContent(content) : null;
+            return ModelState.IsValid ? _mapper.Map<ContentViewModel>(_contentService.AddContent(content)) : null;
         }
     }
 }

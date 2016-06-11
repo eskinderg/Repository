@@ -36,7 +36,6 @@ project.controller('ExpenseGridController', function ($scope, projectService ) {
         showFooter: true,
         columnDefs:
         [
-            { field: 'Id', displayName: 'Content ID'},
             { field: 'Title', displayName: 'Title'},
             { field: 'XmlConfigId', displayName: 'XmlConfigId' },
             { field: 'Summary', displayName: 'Summary' },

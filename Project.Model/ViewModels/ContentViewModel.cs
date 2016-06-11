@@ -19,9 +19,6 @@ namespace Project.Model.ViewModels
         public int XmlConfigId { get; set; }
 
         [DataMember]
-        public int FolderId { get; set; }
-
-        [DataMember]
         public Folder Folder { get; set; }
     }
 }

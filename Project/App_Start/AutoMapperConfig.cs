@@ -1,18 +1,31 @@
-﻿using AutoMapper;
-using Project.Model.Models;
-using Project.Model.ViewModels;
+﻿using Autofac;
+using AutoMapper;
+using System;
+using System.Linq;
+using System.Reflection;
 
 namespace Project.App_Start
 {
-    public static class AutoMapperConfig
+    public static class AutoMapperConfiguration
     {
-        public static void RegisterMappings()
+        public static void RegisterMappings(ContainerBuilder builder)
         {
-            Mapper.Initialize(cfg =>
+            var profiles = from t in Assembly.GetExecutingAssembly().GetTypes()
+                           where typeof(Profile).IsAssignableFrom(t)
+                           select (Profile)Activator.CreateInstance(t);
+
+
+            builder.Register(ctx => new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Content, ContentViewModel>();
-                cfg.CreateMap<Folder, FolderViewModel>();
-            });
+                foreach (var profile in profiles)
+                {
+                    cfg.AddProfile(profile);
+                }
+            }));
+
+            builder.Register(ctx => ctx.Resolve<MapperConfiguration>().CreateMapper()).As<IMapper>();
+            
+
         }
     }
 }

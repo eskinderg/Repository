@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Extentions\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -180,9 +181,8 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Attribute\CacheClientAttribute.cs" />
-    <Compile Include="AutoMapper\MapperConfiguration.cs" />
+    <Compile Include="AutoMapper\MappingProfile.cs" />
     <Compile Include="Controllers\ContentController.cs" />
-    <Compile Include="Extentions\MappingExtentions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
