@@ -20,7 +20,8 @@ namespace Project
                 "~/Scripts/angular-cookies.js",
                 "~/Scripts/ng-grid.js",
                 "~/Scripts/ui-grid.js",
-                "~/Scripts/angular-ui/ui-bootstrap-tpls.js"));
+                "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
+                "~/Scripts/ngDialog.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
@@ -47,7 +48,9 @@ namespace Project
                       "~/Content/ng-grid.css",
                       "~/Content/ui-grid.css",
                       "~/Content/bootstrap-theme.css",
-                      "~/Content/ui-bootstrap-csp.css"));
+                      "~/Content/ui-bootstrap-csp.css",
+                      "~/Content/ngDialog.css",
+                      "~/Content/ngDialog-theme-default.css"));
 
         }
     }

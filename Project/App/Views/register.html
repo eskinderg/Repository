@@ -1,0 +1,79 @@
+﻿<div>
+    <div class="row" style="margin-top: 2%">
+        <div class="col-lg-12 col-lg-12 col-xs-12">
+            <div class="panel panel-default" style="margin-top: 12px">
+                <div class="panel-heading clearfix">
+                    <i class="icon-calendar"></i>
+                    <h3 class="panel-title">Register</h3>
+                </div>
+
+                <div class="panel-body" ng-controller="FormSubmitController">
+
+
+                    <table class="dialogTbl">
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Username</span>
+                                    <input type="text" name="Username" class="form-control" ng-model="content.Username" required>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Email</span>
+                                    <input type="text" name="Email" class="form-control" ng-model="content.Email" required>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <span class="input-group-addon">First Name</span>
+                                    <input type="text" name="Firstname" class="form-control" ng-model="content.Firstname" required>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Last Name</span>
+                                    <input type="text" name="Lastname" class="form-control" ng-model="content.Lastname" required>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Password</span>
+                                    <input type="text" name="Passwaord" class="form-control" ng-model="content.Password" required>
+                                </div>
+                            </td>
+                        </tr>
+
+
+
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<p ng-repeat="content in contents">{{content.Title}}</p>-->
+
+</div>
+
+<style>
+    .dialogTbl td {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+</style>

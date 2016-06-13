@@ -1,4 +1,4 @@
-﻿var project = angular.module('ProjectApp', ['ngGrid']);
+﻿var project = angular.module('ProjectApp', ['ngGrid', 'ngDialog']);
 
 
 

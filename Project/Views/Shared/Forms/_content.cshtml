@@ -39,8 +39,8 @@
             <span ng-show="contentform.Amount.$error.currency && ! contentform.Amount.$pristine">Currency only</span>
         </div>
 
-    <br />
-
+    <br/>
+        <input type="button" value="Login" class="btn btn-default" ng-click="showLoginDialog();" />
         <input type="submit" ng-disabled="contentform.$invalid || contentform.$pristine" value="Submit" class="btn btn-default" />
 
     <br><br>

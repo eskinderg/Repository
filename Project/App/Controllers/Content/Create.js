@@ -1,6 +1,6 @@
 ﻿
 //Parent Controller
-project.controller('FormSubmitController', function ($scope, projectService) {
+project.controller('FormSubmitController', function ($scope, projectService, ngDialog) {
 
     $scope.folders = [];
 
@@ -13,6 +13,55 @@ project.controller('FormSubmitController', function ($scope, projectService) {
             $scope.$broadcast('submitted', newAddedContent);
         });
     }
+
+    $scope.showLoginDialog = function () {
+        ngDialog.open({
+            template: 'App/Views/login.html',
+            className: 'ngdialog-theme-default',
+            controller: 'LoginDialogController',
+            disableAnimation: true
+        });
+    };
+
+    $scope.showRegisterDialog = function () {
+        
+        this.closeThisDialog();
+
+        ngDialog.open({
+            template: 'App/Views/register.html',
+            className: 'ngdialog-theme-default',
+            controller: 'RegisterDialogController',
+            disableAnimation: true
+        });
+
+    };
+});
+
+
+project.controller('LoginDialogController', function ($scope, projectService) {
+
+ 
+        projectService.getAllContents().then(function (result) {
+            $scope.contents = result;
+        });
+
+        $scope.loginBtn = function() {
+            alert('you are logged in succusfully: Data From Server ' + $scope.contents[2].Title);
+        }
+ 
+});
+
+project.controller('RegisterDialogController', function ($scope, projectService) {
+
+
+    projectService.getAllContents().then(function (result) {
+        $scope.contents = result;
+    });
+
+    $scope.loginBtn = function () {
+        alert('you are logged in succusfully: Data From Server ' + $scope.contents[2].Title);
+    }
+
 });
 
 

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using AutoMapper;
-using Project.Model;
 using Project.Model.Models;
 using Project.Model.ViewModels;
 using Project.Attribute;
@@ -30,8 +29,8 @@ namespace Project.Api
         [CacheClient(Duration =20)]
         public IEnumerable<ContentViewModel> GetAllContents()
         {
-            var cvm = _mapper.Map<IEnumerable<ContentViewModel>>(_contentService.GetAllContents());
-            return cvm;
+            return _mapper.Map<IEnumerable<ContentViewModel>>(_contentService.GetAllContents());
+            
         }
 
         [HttpGet]
@@ -52,7 +51,10 @@ namespace Project.Api
         [Route("content/add")]
         public ContentViewModel Add(Content content)
         {
-            return ModelState.IsValid ? _mapper.Map<ContentViewModel>(_contentService.AddContent(content)) : null;
+            if (content == null) 
+                return null;
+            _contentService.AddContent(content);
+            return _mapper.Map<ContentViewModel>(content);
         }
     }
 }
