@@ -194,6 +194,7 @@
     <Content Include="App\directives.js" />
     <Content Include="App\Project.js" />
     <Content Include="App\service.js" />
+    <Content Include="App\Views\content.html" />
     <Content Include="App\Views\register.html" />
     <Content Include="App\Views\login.html" />
     <Content Include="App_Data\Project.mdf" />

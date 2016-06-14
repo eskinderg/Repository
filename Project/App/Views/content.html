@@ -1,0 +1,22 @@
+﻿<h3>Contents</h3>
+<table class="table">
+    <tr ng-repeat="content in contents">
+        <td>{{content.Title}}</td>
+        <td>{{content.XmlConfigId}}</td>
+        <td>{{content.Summary}}</td>
+        <td>{{content.Folder.Name}}</td>
+    </tr>
+</table>
+
+
+<div style="text-align: right">
+    <input type="button" value="Close" class="btn btn-default" ng-click="closeDialogBtn();"/>
+</div>
+
+
+<style>
+.ngdialog.ngdialog-theme-default.custom-width .ngdialog-content {
+    width: 1150px;
+    padding-top: 32px;
+}
+</style>

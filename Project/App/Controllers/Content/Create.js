@@ -12,7 +12,7 @@ project.controller('FormSubmitController', function ($scope, projectService, ngD
         projectService.addContent(content).then(function successCallback(newAddedContent) {
             $scope.$broadcast('submitted', newAddedContent);
         });
-    }
+    };
 
     $scope.showLoginDialog = function () {
         ngDialog.open({
@@ -23,44 +23,64 @@ project.controller('FormSubmitController', function ($scope, projectService, ngD
         });
     };
 
+});
+
+
+project.controller('LoginDialogController', function ($scope, projectService, ngDialog) {
+
+    $scope.loginBtn = function () {
+
+        projectService.getContent(6).then(function (result) {
+            alert('you are logged in succusfully: Data From Server-> ' + result.Title);
+        });
+    };
+
     $scope.showRegisterDialog = function () {
-        
+
         this.closeThisDialog();
 
         ngDialog.open({
-            template: 'App/Views/register.html',
-            className: 'ngdialog-theme-default',
-            controller: 'RegisterDialogController',
-            disableAnimation: true
+                template: 'App/Views/register.html',
+                className: 'ngdialog-theme-default',
+                controller: 'RegisterDialogController',
+                disableAnimation: true
         });
 
     };
-});
 
-
-project.controller('LoginDialogController', function ($scope, projectService) {
-
- 
-        projectService.getAllContents().then(function (result) {
-            $scope.contents = result;
+    $scope.showContent = function (contentId) {
+        ngDialog.open({
+            template: 'App/Views/content.html',
+            className: 'ngdialog-theme-default custom-width',
+            controller: 'ContentDialogController',
+            width: '50%',
+            disableAnimation: true
         });
+    };
 
-        $scope.loginBtn = function() {
-            alert('you are logged in succusfully: Data From Server ' + $scope.contents[2].Title);
-        }
- 
+
 });
 
 project.controller('RegisterDialogController', function ($scope, projectService) {
-
 
     projectService.getAllContents().then(function (result) {
         $scope.contents = result;
     });
 
-    $scope.loginBtn = function () {
-        alert('you are logged in succusfully: Data From Server ' + $scope.contents[2].Title);
-    }
+});
+
+
+project.controller('ContentDialogController', function ($scope, projectService, ngDialog) {
+
+        $scope.contents =[];
+
+        projectService.getAllContents().then(function(result) {
+            $scope.contents = result;
+        });
+
+        $scope.closeDialogBtn = function() {
+            this.closeThisDialog();
+        };
 
 });
 
@@ -69,11 +89,11 @@ project.controller('RegisterDialogController', function ($scope, projectService)
 project.controller('ExpenseGridController', function ($scope, projectService ) {
 
     $scope.contents = [];
-    
+
     projectService.getAllContents().then(function (result) {
-        
+
         $scope.contents = result;
-        
+
     });
 
     $scope.gridOptions = {
@@ -88,23 +108,20 @@ project.controller('ExpenseGridController', function ($scope, projectService ) {
             { field: 'Title', displayName: 'Title'},
             { field: 'XmlConfigId', displayName: 'XmlConfigId' },
             { field: 'Summary', displayName: 'Summary' },
-            { field: 'Folder.Name', displayName: 'Folder' }       
+            { field: 'Folder.Name', displayName: 'Folder' }
         ]
-    }
+    };
 
 
     $scope.$on('submitted', function (event, newAddedContent)
     {
-            projectService.getContent(newAddedContent.Id).then( function successCallback(result) {            
-               
+            projectService.getContent(newAddedContent.Id).then( function successCallback(result) {
+
                     $scope.contents.push(result); //Push the new Data to the grid view
                     $scope.$parent.content = []; // Clear the submitted form data
                     $scope.$parent.contentform.$setPristine(); // Make the form untouched
-                
+
              });
     });
-    
+
 });
-
-
-
