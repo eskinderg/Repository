@@ -13,7 +13,7 @@ namespace Project.Data
     {
         public ProjectDbContext() : base("ProjectDB")
         {
-            Database.SetInitializer<ProjectDbContext>(null);
+            Database.SetInitializer<ProjectDbContext>(new CreateDatabaseIfNotExists<ProjectDbContext>());
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
