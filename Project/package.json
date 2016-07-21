@@ -1,0 +1,32 @@
+{
+  "name": "repository",
+  "version": "1.0.0",
+  "description": "repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://www.github.com/eskinderg"
+  },
+  "keywords": [
+    "asp",
+    "mvc",
+    "c#",
+    "angular"
+  ],
+  "author": "eskinder",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "angular-bootstrap-npm": "^0.14.3",
+    "angular-cookies": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-ui-grid": "^3.2.6",
+    "bootstrap": "^3.3.6",
+    "jquery": "^3.1.0",
+    "ng-dialog": "^0.6.2",
+    "ng-grid": "^2.0.1"
+  }
+}
