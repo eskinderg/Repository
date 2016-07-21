@@ -213,7 +213,6 @@ ModelManifest.xml
 Project/Web.config
 node_modules
 Project/node_modules
-Web.config
 Project/Web.config
 Project/Scripts/*
 Project/Content/*

@@ -3,7 +3,6 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Project.Api;
-using Project.Model;
 using Project.Model.Models;
 using Project.Services;
 using AutoMapper;
@@ -11,7 +10,7 @@ using Project.Model.ViewModels;
 
 namespace Project.Tests
 {
-    
+
     [TestClass]
     public class ContentApiControllerTests
     {

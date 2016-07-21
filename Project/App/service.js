@@ -10,7 +10,6 @@ project.service("projectService", function ($http, $q) {
             getAllFolders: getAllFolders
         });
 
-
         function addContent(content) {
             var request = $http({
                 method: "POST",
