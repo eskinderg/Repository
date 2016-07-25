@@ -1,6 +1,7 @@
 {
   "name": "repository",
   "version": "1.0.0",
+  "private": true,
   "description": "repository",
   "main": "index.js",
   "scripts": {

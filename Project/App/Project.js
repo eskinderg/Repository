@@ -1,5 +1,6 @@
-﻿var project = angular.module('ProjectApp', ['ngGrid', 'ngDialog']);
+﻿var project = angular.module('ProjectApp', ['ngGrid','ui.grid','ngDialog']);
 
+/*
 project.config(['ngDialogProvider', function (ngDialogProvider) {
     ngDialogProvider.setDefaults({
         className: 'ngdialog-theme-default',
@@ -14,3 +15,4 @@ project.config(['ngDialogProvider', function (ngDialogProvider) {
         }
     });
 }]);
+*/

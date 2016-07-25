@@ -1,5 +1,4 @@
-﻿
-//Parent Controller
+﻿//Parent Controller
 project.controller('FormSubmitController', function ($scope, projectService, ngDialog) {
 
     $scope.folders = [];
@@ -37,7 +36,7 @@ project.controller('LoginDialogController', function ($scope, projectService, ng
 
     $scope.showRegisterDialog = function () {
 
-        this.closeThisDialog();
+        //this.closeThisDialog();
 
         ngDialog.open({
                 template: 'App/Views/register.html',
@@ -57,7 +56,6 @@ project.controller('LoginDialogController', function ($scope, projectService, ng
             disableAnimation: true
         });
     };
-
 
 });
 
@@ -98,11 +96,15 @@ project.controller('ExpenseGridController', function ($scope, projectService ) {
 
     $scope.gridOptions = {
         data: 'contents',
-        multiSelect: false,
-        selectedItems: $scope.mySelections,
-        enableCellEdit: true,
-        enableColumnResize: true,
-        showFooter: true,
+        enableColumnMenus: false,
+        enableHorizontalScrollbar: 0,
+        enableVerticalScrollbar: 3,
+        //multiSelect: false,
+        //noUnselect: true,
+        //selectedItems: $scope.mySelections,
+        //enableCellEdit: true,
+        //enableColumnResize: true,
+        //showFooter: true,
         columnDefs:
         [
             { field: 'Title', displayName: 'Title'},
@@ -111,7 +113,6 @@ project.controller('ExpenseGridController', function ($scope, projectService ) {
             { field: 'Folder.Name', displayName: 'Folder' }
         ]
     };
-
 
     $scope.$on('submitted', function (event, newAddedContent)
     {
