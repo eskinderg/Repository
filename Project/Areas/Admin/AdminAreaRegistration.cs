@@ -6,7 +6,7 @@ namespace Project.Areas.Admin
     {
         public override string AreaName 
         {
-            get 
+            get;
             {
                 return "Admin";
             }
