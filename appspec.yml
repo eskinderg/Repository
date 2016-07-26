@@ -1,5 +1,5 @@
 version: 0.0
 os: windows
 files:
-  - source: \_PublishedWebsites\Project
+  - source: \Project\obj\Release\Package\PackageTemp
     destination: C:\inetpub\wwwroot
